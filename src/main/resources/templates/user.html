@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td th:if="${id!=null}">Id</td>
+        <td th:if="${id!=null}" th:text="${id}"> </td>
+    </tr>
+    <tr>
+    <tr>
+        <td>Login</td>
+        <td th:text="${login}"></td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td th:text="${age}"></td>
+    </tr>
+    <tr>
+        <td>Message</td>
+        <td th:text="${message}"></td>
+    </tr>
+</table>
+</body>
+</html>
