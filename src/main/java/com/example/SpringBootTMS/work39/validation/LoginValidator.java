@@ -1,6 +1,5 @@
-package com.example.SpringBootTMS.validation;
+package com.example.SpringBootTMS.work39.validation;
 
-import com.example.SpringBootTMS.validation.Login;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

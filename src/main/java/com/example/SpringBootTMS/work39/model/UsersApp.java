@@ -1,6 +1,6 @@
-package com.example.SpringBootTMS.model;
+package com.example.SpringBootTMS.work39.model;
 
-import com.example.SpringBootTMS.validation.Login;
+import com.example.SpringBootTMS.work39.validation.Login;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
