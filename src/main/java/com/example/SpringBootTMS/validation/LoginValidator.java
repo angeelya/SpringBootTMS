@@ -1,4 +1,4 @@
-package com.example.SpringBootTMS.work39.validation;
+package com.example.SpringBootTMS.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

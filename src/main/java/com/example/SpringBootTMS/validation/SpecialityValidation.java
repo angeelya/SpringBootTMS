@@ -1,9 +1,7 @@
-package com.example.SpringBootTMS.work41.validation;
+package com.example.SpringBootTMS.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-
-import java.lang.annotation.Annotation;
 
 public class SpecialityValidation implements ConstraintValidator<Speciality,String> {
 

@@ -1,8 +1,8 @@
-package com.example.SpringBootTMS.work39.controller;
+package com.example.SpringBootTMS.controller;
 
 
-import com.example.SpringBootTMS.work39.service.Service;
-import com.example.SpringBootTMS.work39.model.UsersApp;
+import com.example.SpringBootTMS.service.Service;
+import com.example.SpringBootTMS.model.UsersApp;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

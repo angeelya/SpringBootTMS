@@ -1,5 +1,6 @@
-package com.example.SpringBootTMS.work41;
+package com.example.SpringBootTMS.service;
 
+import com.example.SpringBootTMS.model.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

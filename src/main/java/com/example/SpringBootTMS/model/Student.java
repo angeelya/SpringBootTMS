@@ -1,6 +1,6 @@
-package com.example.SpringBootTMS.work41;
+package com.example.SpringBootTMS.model;
 
-import com.example.SpringBootTMS.work41.validation.Speciality;
+import com.example.SpringBootTMS.validation.Speciality;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

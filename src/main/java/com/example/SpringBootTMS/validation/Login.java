@@ -1,17 +1,16 @@
-package com.example.SpringBootTMS.work41.validation;
+package com.example.SpringBootTMS.validation;
 
-import com.example.SpringBootTMS.work41.validation.SpecialityValidation;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = SpecialityValidation.class)
+@Constraint(validatedBy = LoginValidator.class)
 @Target({ElementType.PARAMETER, ElementType.FIELD,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Speciality {
-    String message() default "Speciality does not meet requirements.Use letters";
+public @interface Login {
+    String message() default "Login does not meet requirements.Use letters and numbers";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
