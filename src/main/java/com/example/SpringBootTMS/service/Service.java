@@ -1,6 +1,8 @@
 package com.example.SpringBootTMS.service;
 
 import com.example.SpringBootTMS.model.UsersApp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
@@ -9,6 +11,8 @@ import java.sql.*;
 public class Service {
     private Connection connection;
     private Statement statement;
+    private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+
     private String message;
 
     private final String DRIVER = "com.mysql.cj.jdbc.Driver", DB_URL = "jdbc:mysql://localhost/", DATABASE_NAME = "work20", LOGIN = "root", PASS = "mysql";
@@ -26,9 +30,10 @@ public class Service {
             statement.executeUpdate("create database IF NOT EXISTS " + DATABASE_NAME);
             statement.close();
             connection.close();
+            LOGGER.info("Database created");
         } catch (SQLException | ClassNotFoundException | NoSuchMethodException | InstantiationException |
                  IllegalAccessException | InvocationTargetException e) {
-            System.out.println(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 
@@ -37,8 +42,9 @@ public class Service {
             connection = DriverManager.getConnection(DB_URL + DATABASE_NAME, LOGIN, PASS);
             statement = connection.createStatement();
             statement.executeUpdate("create table IF NOT EXISTS usersapp (id bigint primary key auto_increment ,login varchar(200),age int)");
+            LOGGER.info("Connection and Table created");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 
@@ -50,8 +56,11 @@ public class Service {
             usersApp.setId(userInformation.getLong("id"));
             usersApp.setLogin(userInformation.getString("login"));
             usersApp.setAge(userInformation.getInt("age"));
-        } else usersApp = null;
-
+            LOGGER.info("User got: " + usersApp);
+        } else {
+            usersApp = null;
+            LOGGER.info("User didn't find: null");
+        }
         return usersApp;
     }
 
@@ -59,6 +68,7 @@ public class Service {
         message = "Insert isn't successful";
         if (statement.executeUpdate("insert into usersapp(login,age) value('" + usersApp.getLogin() + "'," + usersApp.getAge() + ")") > 0)
             message = "Insert is successful";
+        LOGGER.info(message);
         return message;
     }
 
@@ -66,6 +76,7 @@ public class Service {
         message = "Update  was not completed";
         if (statement.executeUpdate("update usersapp set login='" + login + "'where id=" + id) > 0)
             message = "Update is successful";
+        LOGGER.info(message);
         return message;
     }
 
@@ -73,6 +84,7 @@ public class Service {
         message = "Delete was not completed";
         if (statement.executeUpdate("delete from usersapp where id=" + id) > 0)
             message = "Delete is successful";
+        LOGGER.info(message);
         return message;
     }
 }

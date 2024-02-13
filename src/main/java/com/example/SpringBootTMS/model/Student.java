@@ -6,12 +6,13 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
-    @Size(min = 2, max=200 , message = "Login should be between 2 and 200")
+    @Size(min = 2, max=200 , message = "Name should be between 2 and 200")
     private String name;
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;

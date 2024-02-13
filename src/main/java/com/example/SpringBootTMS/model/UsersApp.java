@@ -2,14 +2,16 @@ package com.example.SpringBootTMS.model;
 
 import com.example.SpringBootTMS.validation.Login;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UsersApp {
     private Long id;
-    @NotEmpty(message = "Login should not be empty")
     @Size(min = 2, max=200 , message = "Login should be between 2 and 200")
     @Login
     private String login;

@@ -21,7 +21,7 @@ public class Controller {
 
     @GetMapping("")
     public String index() {
-        return "/index";
+        return "index";
     }
     @GetMapping(value = "/insert_user")
     public String user(Model model) {
