@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order</title>
+</head>
+<body>
+<table>
+    <tr>
+    <tr>
+        <td>Customer name</td>
+        <td th:text="${name}"></td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td th:text="${address}"></td>
+    </tr>
+    <tr>
+        <td>Type of product</td>
+        <td th:text="${type}"></td>
+    </tr>
+    <tr>
+        <td>Cost</td>
+        <td th:text="${cost}"></td>
+    </tr>
+</table>
+</body>
+</html>
