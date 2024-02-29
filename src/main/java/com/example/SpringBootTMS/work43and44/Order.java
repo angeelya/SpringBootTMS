@@ -1,4 +1,4 @@
-package com.example.SpringBootTMS.work43;
+package com.example.SpringBootTMS.work43and44;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
