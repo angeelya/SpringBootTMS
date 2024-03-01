@@ -98,7 +98,7 @@ public class OrderHQLService {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Order> cq=cb.createQuery(Order.class);
         Root<Order> root = cq.from(Order.class);
-        cq.select(root).where(cb.gt((root.get("cost")),sum));
+        cq.select(root).where(cb.gt((root.get("cost")),sum)).orderBy(cb.asc(root.get("cost")));
         Query<Order> query = session.createQuery(cq);
         List<Order> results = query.getResultList();
         session.close();
