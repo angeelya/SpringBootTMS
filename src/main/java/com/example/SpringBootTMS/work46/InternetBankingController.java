@@ -25,7 +25,7 @@ public class InternetBankingController {
     public ResponseEntity getClient(@RequestParam("id") Long id) {
         Client client =service.getInformationClient(id);
         if(client==null)
-            return new ResponseEntity(new Message(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(new Message("Not found"), HttpStatus.OK);
         return new ResponseEntity(client,HttpStatus.OK);
     }
 
@@ -33,7 +33,7 @@ public class InternetBankingController {
     public ResponseEntity getCard(@RequestParam("id") Long id) {
         Card card =service.getInformationCard(id);
         if(card==null)
-            return new ResponseEntity(new Message(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(new Message("Not found"), HttpStatus.OK);
         return new ResponseEntity(card,HttpStatus.OK);
     }
 

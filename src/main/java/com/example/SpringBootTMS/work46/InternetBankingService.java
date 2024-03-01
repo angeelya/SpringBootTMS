@@ -26,18 +26,13 @@ public class InternetBankingService {
     private Transaction transaction;
 
     public Client getInformationClient(Long id) {
-        try {
             session = sessionFactory.openSession();
             Client client = session.get(Client.class, id);
             session.close();
             return client;
-        } catch (JDBCConnectionException e) {
-            return null;
-        }
     }
 
     public String insertCard(CardDTO cardDTO) {
-        try {
             session = sessionFactory.openSession();
             Client client = session.get(Client.class, cardDTO.getClient_id());
             session.close();
@@ -46,9 +41,7 @@ public class InternetBankingService {
             card.setSum(cardDTO.getSum());
             card.setClient(client);
             return insert(card);
-        } catch (JDBCConnectionException e) {
-            return "Not successful. " + e.getMessage();
-        }
+
     }
 
     public String insertClient(ClientDTO clientDTO) {
@@ -65,7 +58,7 @@ public class InternetBankingService {
             transaction.commit();
             session.close();
             return "successful";
-        } catch (NullPointerException | JDBCConnectionException | ConstraintViolationException e) {
+        } catch (NullPointerException  | ConstraintViolationException e) {
             return "Not successful. " + e.getMessage();
         } catch (RollbackException e) {
             transaction.rollback();
@@ -74,14 +67,10 @@ public class InternetBankingService {
     }
 
     public Card getInformationCard(Long id) {
-        try {
             session = sessionFactory.openSession();
             Card card = session.get(Card.class, id);
             session.close();
             return card;
-        } catch (JDBCConnectionException e) {
-            return null;
-        }
 
     }
 
@@ -110,7 +99,7 @@ public class InternetBankingService {
             transaction.commit();
             session.close();
             return "successful";
-        } catch (NullPointerException | JDBCConnectionException | ConstraintViolationException |
+        } catch (NullPointerException  | ConstraintViolationException |
                  RemittanceException e) {
             return "Not successful. " + e.getMessage();
         } catch (RollbackException e) {
