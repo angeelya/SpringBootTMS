@@ -1,5 +1,6 @@
 package com.example.SpringBootTMS.work52;
 
+import com.example.SpringBootTMS.work47.Message;
 import com.example.SpringBootTMS.work52.dto.JwtTokenResponse;
 import com.example.SpringBootTMS.work52.dto.LogInRequest;
 import com.example.SpringBootTMS.work52.dto.RegisterRequest;
@@ -27,5 +28,10 @@ public class AuthenticationController {
     public ResponseEntity<String> hello()
     {
         return ResponseEntity.ok("Hello");
+    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity handlerAuthException(IllegalArgumentException e)
+    {
+        return ResponseEntity.badRequest().body(new Message(e.getMessage()));
     }
 }
